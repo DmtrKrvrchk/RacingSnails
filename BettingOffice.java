@@ -31,6 +31,7 @@ public class BettingOffice {
         this.racing = racing;
         this.bets = new ArrayList<>();
         this.winnnerBets = new ArrayList<>();
+
         if (coefficient < 1.01) {
             throw new IllegalArgumentException("The coefficient has to be more than 1.01!");
         } else {
@@ -93,5 +94,6 @@ public class BettingOffice {
     public String toString() {
         return "Today's racing is "+racing+". Its coefficient is "+coefficient+". Today's bets are "+bets+".";
     }
+
 
 }

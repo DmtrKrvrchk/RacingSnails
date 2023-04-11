@@ -37,10 +37,21 @@ public class Racing {
      * @throws IllegalArgumentException - if the snail already on the racing's list
      */
     public void addRacingSnails(List<RacingSnail> snails){
-        if (this.racingSnails.contains(snails)) {
+            // TODO Das funktioniert so auch nicht und Exception wird nirgends abgefangen
+        if (snails.stream().anyMatch(snail->racingSnails.contains(snail))) {
             throw new IllegalArgumentException("You cannot add the same racing snail twice!");
         } else {
             racingSnails.addAll(snails);
+        }
+    }
+
+    /**
+     * Laut Aufgabe sollte es solch eine Methode geben (mein Fehler)
+     * @param snail
+     */
+    public void addRacingSnail(RacingSnail snail){
+        if (!racingSnails.contains(snail)){
+            racingSnails.add(snail);
         }
     }
 
@@ -48,8 +59,11 @@ public class Racing {
     /** Method to remove a racing snail from the racing's list
      * @param name - The name of the snail to remove from the racing's list
      */
+    //TODO Wird nirgends genutzt
     public void removeRacingSnail (String name) {
-        this.racingSnails.remove(name);
+        //TODO das funktioniert so nicht.
+        racingSnails.remove(name);
+
     }
 
 
@@ -66,6 +80,7 @@ public class Racing {
      * Method determines the winner of the racing
      * @return - The winning snail or null, if nobody won
      */
+    //TODO wenn eine Schnecke genau pathlength erreicht, dann wird diese nicht als gewinner aufgeführt
     private RacingSnail determineWinner() {
         RacingSnail winner = null;
         for (RacingSnail snail:this.racingSnails) {
@@ -110,6 +125,7 @@ public class Racing {
      * Method returns the name of racing
      * @return Name of racing
      */
+    //TODO Wird nirgends genutzt
     public String getName() { return name; }
 
 
@@ -117,5 +133,6 @@ public class Racing {
      * Method returns participating snails
      * @return Participating snails
      */
+    //TODO wird nigends genutzt
     public ArrayList<RacingSnail> getRacingSnails() { return racingSnails; }
 }

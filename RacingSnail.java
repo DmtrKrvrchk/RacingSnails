@@ -15,7 +15,7 @@ public class RacingSnail {
     private String race;
 
     /** Racing snail's maximal speed */
-    private double maxSpeed;
+    private Double maxSpeed;
 
     /** Covered path */
     private double covered;
@@ -39,8 +39,10 @@ public class RacingSnail {
      * Method for a snail to crawl
      */
     public void crawl() {
-        Random random = new Random();
-        this.covered += maxSpeed*random.nextInt(10);
+      //  Random random = new Random();
+        //TODO die Formel ist meiner meinung nach nicht korrekt
+        //"Sie kriecht eine zufällige Strecke größer null und kleiner ihrer Maximalgeschwindigkeit. Nimm als Zeiteinheit 1 an."
+        this.covered +=new Random().nextInt(maxSpeed.intValue());
     }
 
 
@@ -57,6 +59,7 @@ public class RacingSnail {
      * Method returns the race of a snail
      * @return - The Race  of a snail
      */
+    //TODO brauch man nicht
     public String getRace() {
         return race;
     }
@@ -66,6 +69,7 @@ public class RacingSnail {
      * Method returns the maximum speed of a snail
      * @return - The maximum speed of a snail
      */
+    //TODO brauch man nicht bzw. wird nirgends genutzt
     public double getMaxSpeed() {
         return maxSpeed;
     }
