@@ -10,22 +10,22 @@ import java.util.Objects;
 public class BettingOffice {
 
     /** Racing to bet at this booking office */
-    private Racing racing;
+    private final Racing racing;
 
     /** Coefficient to bet */
-    private double coefficient;
+    private final double coefficient;
 
     /** ArrayList with all bets */
-    private ArrayList<Bet> bets;
+    private final ArrayList<Bet> bets;
 
     /** ArrayList with winning bets */
-    private ArrayList<Bet> winnnerBets;
+    private final ArrayList<Bet> winnnerBets;
 
 
     /**
      * Constructor of a betting office
-     * @param racing - Racing to bet
-     * @param coefficient - Coefficient to bet
+     * @param racing racing to bet
+     * @param coefficient coefficient to bet
      */
     public BettingOffice(Racing racing, double coefficient) {
         this.racing = racing;
@@ -42,18 +42,18 @@ public class BettingOffice {
 
     /**
      * Method to bet
-     * @param playerName - Name of betmaker
-     * @param snailName - Name of snail to bet
-     * @param betAmount - Amount to bet
+     * @param playerName name of betmaker
+     * @param snailName name of snail to bet
+     * @param betAmount amount to bet
      */
     public void betting(String playerName, String snailName, double betAmount) {
-            this.bets.add(new Bet(playerName, snailName, betAmount));
+        this.bets.add(new Bet(playerName, snailName, betAmount));
     }
 
 
     /**
      * Method to get winnings
-     * @return - Amount to win
+     * @return amount to win
      */
     public double getWinnings() {
         double winnings = 0;
@@ -65,10 +65,10 @@ public class BettingOffice {
 
     /**
      * Method to get ArrayList with winnerbets
-     * @return - ArrayList with winnerbets
+     * @return arrayList with winnerbets
      */
     public ArrayList<Bet> getWinner() {
-        RacingSnail winner = racing.execute();;
+        RacingSnail winner = racing.execute();
         for (Bet bet:bets) {
             if (Objects.equals(bet.getSnailName(), winner.getName())) {
                 winnnerBets.add(new Bet(bet.getPlayerName(), bet.getSnailName(), bet.getBetAmount()));
@@ -80,7 +80,7 @@ public class BettingOffice {
 
     /**
      * Method to get all bets
-     * @return - All bets
+     * @return all bets
      */
     public ArrayList<Bet> getBets() {
         return bets;
@@ -94,6 +94,4 @@ public class BettingOffice {
     public String toString() {
         return "Today's racing is "+racing+". Its coefficient is "+coefficient+". Today's bets are "+bets+".";
     }
-
-
 }
