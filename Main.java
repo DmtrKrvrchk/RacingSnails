@@ -36,8 +36,8 @@ public class Main {
         BettingOffice bookmaker2 = new BettingOffice(racing2, 3.5);
         BettingOffice bookmaker3 = new BettingOffice(racing3, 2);
 
-        bookmaker1.betting("Mr Cash", "Joe", 10000);
-        bookmaker1.betting("Mrs Money", "Linda", 500);
+        bookmaker1.betting("Dmitriy", "Joe", 50);
+        bookmaker1.betting("Lisa", "Linda", 70);
         bookmaker1.betting("Mrs Bigger Money", "Billy", 1000);
         bookmaker1.betting("Mr The Biggest Money", "Karl", 5000);
 
@@ -55,6 +55,10 @@ public class Main {
         //logger.info("Winner Snail is " + winnerSnail1.getName());
 
         logger.info("Today's bets are "+bookmaker1.getBets()+". Today's winner is "+bookmaker1.getWinner()+". You won "+bookmaker1.getWinnings());
+
+        logger.info(racing2.toString());
+        racing2.removeRacingSnail("Linda");
+        logger.info(racing2.toString());
 
     }
 }
